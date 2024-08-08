@@ -13,12 +13,18 @@ Time Periods:
 ```bash
 python3 -m venv venv
 source venv/bin/activate
-pip install requests python-dotenv
 ```
 
 ## Notes
+* For top 200 alt coins I am using CG API
 * Getting only hourly data from CG
 * For price data I am using Binance API
+
+# How to use
+1. First setup .env file with appropriate API keys as given in .env.sample 
+2. Go to bottom of ./main.ipynb 
+3. Edit parameters of max_p_change function to how many minutes you want as time period for reversal of alt coin
+4. Run the file
 
 ### SMALL ERROR IN CALCULATION
 Binance API only provides BTC/USDT pair, there will be error coming from USD/USDT pair.
