@@ -26,5 +26,11 @@ source venv/bin/activate
 3. Edit parameters of max_p_change function to how many minutes you want as time period for reversal of alt coin
 4. Run the file
 
-### SMALL ERROR IN CALCULATION
-Binance API only provides BTC/USDT pair, there will be error coming from USD/USDT pair.
+# Output
+Final output 
+
+![img.png](img.png)
+
+### ERRORs IN CALCULATION
+* Binance API only provides BTC/USDT pair, there will be error coming from USD/USDT pair.
+* Couldn't find proper way to connect top crypto with the pair on Binance
