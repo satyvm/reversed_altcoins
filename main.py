@@ -1,17 +1,32 @@
-# This is a sample Python script.
+import requests
+from dotenv import load_dotenv
+import os
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+load_dotenv(override=True)
+CG_API_KEY = os.getenv('CG_API_KEY')
 
+headers = {
+    "accept": "application/json",
+    "x-cg-demo-api-key": CG_API_KEY
+}
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+# server check
+if requests.get("https://api.coingecko.com/api/v3/ping", headers=headers).status_code == 200:
+    print("server is connected")
+else:
+    print("server is not connected")
 
+# time when bitcoin bottomed out on Monday's Market Crash, in GMT+0530 (India Standard Time)
+bitcoin_5aug_price = requests.get(
+    "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=usd&from=1722796200&to=1722882600&precision=full",
+    headers=headers
+)
+print(bitcoin_5aug_price.text)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# Mon Aug 05 2024 00:47:21 GMT+0530
+# Mon Aug 05 2024 01:51:00 GMT+0530
+# Mon Aug 05 2024 02:30:29 GMT+
+# Mon Aug 05 2024 22:47:43 GMT+0530
+# getting only hourly data from CG
 
-print("as")
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# SMALL ERROR IN CALCULATION: as I am going to use Binance and it only provides BTC/USDT pair, there will be error coming from USD/USDT pair
