@@ -31,6 +31,10 @@ Final output
 
 ![img.png](img.png)
 
+# New Idea
+Could use symbols from 
+
 ### ERRORs IN CALCULATION
 * Binance API only provides BTC/USDT pair, there will be error coming from USD/USDT pair.
 * Couldn't find proper way to connect top crypto with the pair on Binance
+
